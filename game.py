@@ -18,23 +18,30 @@ def checknumber(n):
 from random import randint
 print("Hello!")
 name = input("What is your name? ")
-print(f"Hi {name}! I'm thinking of a number between 1 and 100. Guess what it is!")
+while True:
+    print(f"Hi {name}! I'm thinking of a number between 1 and 100. Guess what it is!")
 
-usernumber = input("")
-secretnumber = randint(1,100)
+    usernumber = input("")
+    secretnumber = randint(1,100)
 
-count = 1
-while usernumber != secretnumber:
-    usernumber = checknumber(usernumber)
+    count = 0
+    while usernumber != secretnumber:
+        usernumber = checknumber(usernumber)
 
-    if usernumber > secretnumber:
-        print("Too High!")
-        usernumber = input("Guess Again! ")
+        if usernumber > secretnumber:
+            print("Too High!")
+            usernumber = input("Guess Again! ")
 
-    elif usernumber < secretnumber:
-        print("Too Low!")
-        usernumber = input("Guess Again! ")
-    count += 1
+        elif usernumber < secretnumber:
+            print("Too Low!")
+            usernumber = input("Guess Again! ")
+        count += 1
 
-print(f"That's right! You got it in {count} tries!")
+    print(f"That's right! You got it in {count} tries!")
+    print("Do you want to play again? Y/N?")
+    answer = input("")
+    if answer.upper() == "Y":
+        continue
+    else:
+        break
 
