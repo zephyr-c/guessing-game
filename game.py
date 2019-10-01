@@ -6,11 +6,20 @@ print("Hello!")
 name = input("What is your name? ")
 print(f"Hi {name}! I'm thinking of a number between 1 and 100. Guess what it is!")
 
-usernumber = int(input(""))
+usernumber = input("")
+while usernumber.isdigit() == False:
+    print("Invalid input. Please enter a whole number!")
+    usernumber = input("")
+
+usernumber = int(usernumber)
 secretnumber = 4 #randint(1,100)
 
 count = 1
 while usernumber != secretnumber:
+    while usernumber < 1 or usernumber > 100:
+        print("Invalid input, try again!")
+        usernumber = int(input(""))
+
     if usernumber > secretnumber:
         print("Too High!")
         usernumber = int(input("Guess Again! "))
