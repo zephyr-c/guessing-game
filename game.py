@@ -1,15 +1,17 @@
 """A number-guessing game."""
 def checknumber(n):
-    while n.isdigit() == False:
-        print("Invalid input. Please enter a while number!")
-        n = input("")
-    un = int(n)
-    return un 
-#def checkrange(x):
- #   while x < 1 or x > 100:
-  #      print("Invalid input, try again!")
-  #      x = input("")
-  #      x = checknumber(x)
+    while True:
+        while n.isdigit() == False:
+            print("Invalid, please enter a whole number: ")
+            n = input("")
+        n = int(n)
+        
+        if n <1 or n >100:
+            print("Out of range, please choose between 1 and 100")
+            n = input("")
+        else: 
+            break
+    return n
 
     
 # Put your code here
@@ -19,9 +21,7 @@ name = input("What is your name? ")
 print(f"Hi {name}! I'm thinking of a number between 1 and 100. Guess what it is!")
 
 usernumber = input("")
-secretnumber = 50#randint(1,100)
-
-#print(secretnumber)
+secretnumber = randint(1,100)
 
 count = 1
 while usernumber != secretnumber:
@@ -33,7 +33,7 @@ while usernumber != secretnumber:
 
     elif usernumber < secretnumber:
         print("Too Low!")
-        usernumber = input("Guess Again!")
+        usernumber = input("Guess Again! ")
     count += 1
 
 print(f"That's right! You got it in {count} tries!")
