@@ -9,6 +9,7 @@ print(f"Hi {name}! I'm thinking of a number between 1 and 100. Guess what it is!
 usernumber = int(input(""))
 secretnumber = 4 #randint(1,100)
 
+count = 1
 while usernumber != secretnumber:
     if usernumber > secretnumber:
         print("Too High!")
@@ -16,6 +17,7 @@ while usernumber != secretnumber:
     elif usernumber < secretnumber:
         print("Too Low!")
         usernumber = int(input("Guess Again!"))
+    count += 1
 
-print("That's right! You got it in x tries!")
+print(f"That's right! You got it in {count} tries!")
 
