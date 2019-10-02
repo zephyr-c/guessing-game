@@ -1,17 +1,22 @@
 """A number-guessing game."""
-def checknumber(n):
-    while True:
-        while n.isdigit() == False:
-            print("Invalid, please enter a whole number: ")
-            n = input("")
-        n = int(n)
-        
-        if n <1 or n >100:
-            print("Out of range, please choose between 1 and 100")
-            n = input("")
-        else: 
-            break
-    return n
+def isnumber(x):
+    while x.isdigit() == False:
+        print("Invalid, please enter a whole number: ")
+        x = input("")
+    x = int(x)
+    return x
+
+def checkrange(i):
+    while i<1 or i>100:
+        print("Out of range, please choose between 1 and 100")
+        i = input("")
+        i = isnumber(i)
+    return i
+
+def checknumber(usernum):
+    usernum = isnumber(usernum)
+    usernum = checkrange(usernum)
+    return usernum
 
     
 # Put your code here
