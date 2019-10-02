@@ -25,10 +25,20 @@ print("Hello!")
 name = input("What is your name? ")
 score_log = []
 while True:
-    print(f"Hi {name}! I'm thinking of a number between 1 and 100. Guess what it is!")
+    print(f"Hi {name}! Welcome to my number guessing game. Would you like to choose a number range? Y/N")
+    option = input("")
+    if option.upper() == "Y":
+        maximum = int(input("Please choose a maximum number: "))
+        minimum = int(input("Please choose a minimum number: "))
+        secretnumber = randint(minimum,maximum)
+        print(f"Guess a number between {minimum} and {maximum}")
+
+    else:
+        secretnumber = 50#randint(1,100)
+        print("Guess a number between 1 and 100")
 
     usernumber = input("")
-    secretnumber = 50#randint(1,100)
+    
 
     count = 0
     while usernumber != secretnumber:
