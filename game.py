@@ -28,12 +28,19 @@ while True:
     print(f"Hi {name}! I'm thinking of a number between 1 and 100. Guess what it is!")
 
     usernumber = input("")
-    secretnumber = randint(1,100)
+    secretnumber = 50#randint(1,100)
 
     count = 0
     while usernumber != secretnumber:
         usernumber = checknumber(usernumber)
-
+        count += 1
+        remain = 5 - count
+        print(f"You have {remain} guesses left!")
+        
+        if count >5:
+            break
+        if usernumber == "quit":
+            break
         if usernumber > secretnumber:
             print("Too High!")
             usernumber = input("Guess Again! ")
@@ -41,9 +48,13 @@ while True:
         elif usernumber < secretnumber:
             print("Too Low!")
             usernumber = input("Guess Again! ")
-        count += 1
+        
 
-    print(f"That's right! You got it in {count} tries!")
+    if count >5:
+        print("Sorry! Too many guesses!")
+    else: 
+        print(f"That's right! You got it in {count} tries!")
+
     score_log.append(count)
     print("Do you want to play again? Y/N?")
     answer = input("")
